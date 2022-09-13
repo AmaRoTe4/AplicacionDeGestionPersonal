@@ -1,0 +1,26 @@
+.fondoUTN{
+    background-color: rgb(138, 207, 207);
+}
+
+.boxMainUtn{
+    height: 39%;
+    width: 18%;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    border: solid 3px rgb(69, 197, 69);
+    box-shadow: rgb(69, 197, 69) 0.2em 0.3em 0.01em;
+}
+
+.boxMainUtn:hover{
+    background-color: rgb(245, 245, 245);
+    border: solid 3px rgb(43, 143, 43);
+    box-shadow: black 0.1em 0.1em 0.5em;
+    color: rgb(0, 0, 0);
+}
+
+
+
+

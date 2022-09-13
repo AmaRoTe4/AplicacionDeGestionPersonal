@@ -1,0 +1,32 @@
+.InputArchivos:hover{
+    background-color: aliceblue;
+    color:black;
+    cursor: pointer;
+}
+
+.InputArchivos{
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tableroDocumentos{
+    margin-top: 10px;
+    height:80px;
+    width: 200px;
+}
+
+.btnDocumentos{
+    height:100%;
+    width: 100%;
+    background-color: rgb(85, 85, 85);
+    border-radius: 10px;
+} 
+
+.cutBtn{
+    background-color: red;
+    border-radius: 10px;
+}
+
+.archivos-list{
+    list-style: none;
+}

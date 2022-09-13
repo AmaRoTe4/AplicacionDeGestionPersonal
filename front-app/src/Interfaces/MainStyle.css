@@ -1,0 +1,45 @@
+.titulo{
+    font-size: 90px;
+    font-weight: 10px;
+    text-shadow: black 0.08em 0.07em 0.05em;
+    background: none;
+}
+
+.boxDeLinks{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.minBox{
+    border: solid white 2px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 20px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 35%;
+    text-decoration: none;
+    color: black;
+}
+
+.minBox:hover{
+    border: solid 5px rgb(8, 110, 8);
+}
+
+.UTN{
+    border: solid black 4px;
+    background-color: white;
+    background-image: url('../image/UTN.png');
+    background-size: contain;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+.colugnas{
+    width:10%;
+    height:100%;
+}
+
+.centro{
+    height: 99.5%;
+    width: 80%;
+}
