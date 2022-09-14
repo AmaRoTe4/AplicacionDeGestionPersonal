@@ -1,7 +1,6 @@
 .InputArchivos:hover{
     background-color: aliceblue;
     color:black;
-    cursor: pointer;
 }
 
 .InputArchivos{
@@ -16,8 +15,12 @@
 }
 
 .btnDocumentos{
-    height:100%;
-    width: 100%;
+    transform: translateY(-22px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70px;
+    width: 200px;
     background-color: rgb(85, 85, 85);
     border-radius: 10px;
 } 
@@ -27,6 +30,60 @@
     border-radius: 10px;
 }
 
+/* archivos */
 .archivos-list{
-    list-style: none;
+    height: 80px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.p-archivos-List{
+    width: 90%;
+}
+
+.archvios-list-box{
+    height: 40%;
+    width: 100%;
+}
+
+.confirmacion{
+    border-radius: 10px;
+    align-items: center;
+    transform: translateY(-50px);
+}
+
+/*temas de archivos*/
+.pdf{
+    background-image: url('../../../image/pdf.png');
+    background-size: contain;
+}
+
+.docxYodt{
+    background-image: url('../../../image/docx.webp');
+    background-size: 70%;
+}
+
+.xlsxYods{
+    background-image: url('../../../image/xlsx.png');
+    background-size: 90%;
+}
+
+.json{
+    background-image: url('../../../image/json.png');
+    background-size: 80%;
+}
+
+.pptx{
+    background-image: url('../../../image/pptx.png');
+    background-size: 80%;
+}
+
+.foto{
+    background-image: url('../../../image/foto.png');
+    background-size:contain;
+}
+
+.generico{
+    background-image: url('../../../image/txt.png');
+    background-size:contain;
 }

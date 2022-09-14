@@ -1,5 +1,5 @@
 .fondoUTN{
-    background-color: rgb(138, 207, 207);
+    background-color: rgb(42, 71, 71);
 }
 
 .boxMainUtn{
@@ -10,14 +10,14 @@
     background-color: rgb(255, 255, 255);
     text-decoration: none;
     color: rgb(0, 0, 0);
-    border: solid 3px rgb(69, 197, 69);
-    box-shadow: rgb(69, 197, 69) 0.2em 0.3em 0.01em;
+    border: solid 3px rgb(84, 122, 84);
+    box-shadow: rgb(84, 122, 84) 0.2em 0.3em 0.01em;
 }
 
 .boxMainUtn:hover{
     background-color: rgb(245, 245, 245);
-    border: solid 3px rgb(43, 143, 43);
-    box-shadow: black 0.1em 0.1em 0.5em;
+    border: solid 3px rgb(84, 122, 84);
+    box-shadow: black 0.2em 0.2em 0.5em;
     color: rgb(0, 0, 0);
 }
 

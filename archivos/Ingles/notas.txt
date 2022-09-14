@@ -1,0 +1,24 @@
+what = que
+which = cual
+who = quien
+where = donde
+when = cuando
+why = porque
+how = como
+how many = cuentos
+how much = cuanto
+
+regular verbs + ed
+------------------
+study = studied
+decide = decided
+look = looked
+
+irregular verbs
+---------------
+go = went 
+leave = left
+get = got
+
+he didn't accion = accion en pasado
+

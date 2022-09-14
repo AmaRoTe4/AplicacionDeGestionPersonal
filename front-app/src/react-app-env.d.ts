@@ -1,7 +1,7 @@
 
 export interface NotasGenericas {
-    id:number,
-    name:string,
-    text:string,
-    fecha: string,
+    id: number,
+    Name:string,
+    Text:string,
+    Father:string,
 }
