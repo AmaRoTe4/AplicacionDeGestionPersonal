@@ -1,10 +1,11 @@
 import './MainStyle.css'
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+//import Calendario from './funciones/Calendario/Calendario'
 
 const Main = ():JSX.Element => {
   return (
     <div className="oneHundred d-flex justify-content-center align-items-center">
-        <div className="colugnas"></div>
+        {/*<div className="colugnas"></div>
         <div className='centro d-flex justify-content-center align-items-center flex-column'>
             <div className="twenty d-flex justify-content-center align-items-center">
                 <p className="titulo">Main</p>
@@ -16,7 +17,7 @@ const Main = ():JSX.Element => {
                 <Link to="/UTN" className="minBox col-4"></Link>
             </div>
         </div>
-        <div className="colugnas"></div>
+        <div className="colugnas"></div>*/}
     </div>
     )
 }

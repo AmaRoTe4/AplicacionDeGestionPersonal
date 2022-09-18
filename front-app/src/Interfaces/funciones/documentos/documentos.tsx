@@ -15,7 +15,7 @@ const Documentos = ({nombre}:Props):JSX.Element => {
     return (
         <div className="d-flex flex-column align-items-center" style={{height: '100%' , width: '100%'}}>
             <div className='tableroDocumentos d-flex justify-content-center align-items-center'>
-                {eventos !== 2 && <ObtenerArchivo nombre={nombre} controlador={setEventos} />}
+                {eventos !== 2 && <ObtenerArchivo nombre={nombre} />}
             </div>
             <div className='row mt-5 justify-content-center oneHundredEighty'>
                 <Elementos nombre={nombre} setEventoPrincipal={setEventos}/>

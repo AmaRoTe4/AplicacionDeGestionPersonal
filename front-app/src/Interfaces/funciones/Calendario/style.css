@@ -1,0 +1,89 @@
+.boxDeCalendario{
+    border:solid 1px white;
+    height: 400px;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.boxDeCalendarioMini{
+    border:solid 1px white;
+    height: 100px;
+    width: 125px;
+    border-radius: 15px;
+}
+
+.boxCalInf{
+    height: 80%;
+    width: 100%;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.boxCalSupMin{
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.boxCalSup{
+    height: 10%;
+    width: 100%;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    display: flex;
+    /*justify-content: space-between;
+    align-items: center;*/
+}
+
+.diasGrid{
+    width: 14.27%;
+    border: solid 1px white;
+}
+
+.borderInfIz{
+    border-bottom-left-radius: 14px;
+}
+
+.borderInfDr{
+    border-bottom-right-radius: 14px;
+}
+
+.finde{
+    background-color: rgb(50,50,50);
+}
+
+.marcado{
+    background-color: rgb(177, 0, 0)!important;
+}
+
+.textTarea{
+    width:65%;
+    height: 150px;
+    margin-top: 10px;
+    border-radius: 15px;
+    border: solid 2px black;
+}
+
+.confirmacion{
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 300px;
+}
+
+.diasNombre{
+    height: 20px;
+}
+
+.tamMINN{
+    width:14.28%;
+}
+
+.today{
+    background-color: rgb(72, 158, 22);
+}
+
+.marcadoToday{
+    background: linear-gradient(to right, rgb(72, 158, 22) 50%,red 50%);
+}

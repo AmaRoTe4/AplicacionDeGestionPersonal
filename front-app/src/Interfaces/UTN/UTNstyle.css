@@ -21,6 +21,14 @@
     color: rgb(0, 0, 0);
 }
 
+.calendarioIcono{
+    text-decoration: none;
+    background-color: transparent;
+    /*background-image: url('../../image/calenario.png');*/
+    /*background-size: contain;*/
+    /*height: 80px;
+    width: 80px;*/
+}
 
 
 

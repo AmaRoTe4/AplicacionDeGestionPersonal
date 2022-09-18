@@ -1,17 +1,17 @@
-import Model from '../models/models.js';
+import {ModelNotas , ModelFechas} from '../models/models.js';
 
-export const getAll = async (req, res) => {
+export const getAllNotas = async (req, res) => {
     try{
-        const modelos = await Model.findAll();
+        const modelos = await ModelNotas.findAll();
         res.json(modelos);
     }catch(err){
         res.json({message: err.message});
     }
 }
 
-export const get = async (req, res) => {
+export const getNotas = async (req, res) => {
     try{
-        const modelos = await Model.findAll({
+        const modelos = await ModelNotas.findAll({
             where: {
                 id: req.params.id
             }
@@ -22,9 +22,9 @@ export const get = async (req, res) => {
     }
 }
 
-export const update = async (req, res) => {
+export const updateNotas = async (req, res) => {
     try{
-        await Model.update(req.body , {
+        await ModelNotas.update(req.body , {
             where: {
                 id: req.params.id
             }
@@ -35,18 +35,73 @@ export const update = async (req, res) => {
     }
 }
 
-export const create = async (req, res) => {
+export const createNotas = async (req, res) => {
     try{
-        await Model.create(req.body);
+        await ModelNotas.create(req.body);
         res.json({"message":"fue creado con exito" });
     }catch(err){
         res.json({message: err.message});
     }
 }
 
-export const delet = async (req, res) => {
+export const deletNotas = async (req, res) => {
     try{
-        await Model.destroy({
+        await ModelNotas.destroy({
+            where: {id: req.params.id}
+        });
+        res.json({"message":"fue eleminado con exito"});
+    }catch(err){
+        res.json({message: err.message});
+    }
+}
+
+export const getAllFechas = async (req, res) => {
+    try{
+        const modelos = await ModelFechas.findAll();
+        res.json(modelos);
+    }catch(err){
+        res.json({message: err.message});
+    }
+}
+
+export const getFechas = async (req, res) => {
+    try{
+        const modelos = await ModelFechas.findAll({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json(modelos);
+    }catch(err){
+        res.json({message: err.message});
+    }
+}
+
+export const updateFechas = async (req, res) => {
+    try{
+        await ModelFechas.update(req.body , {
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({"message":"actualizado con exitos"});
+    }catch(err){
+        res.json({message: err.message});
+    }
+}
+
+export const createFechas = async (req, res) => {
+    try{
+        await ModelFechas.create(req.body);
+        res.json({"message":"fue creado con exito" });
+    }catch(err){
+        res.json({message: err.message});
+    }
+}
+
+export const deletFechas = async (req, res) => {
+    try{
+        await ModelFechas.destroy({
             where: {id: req.params.id}
         });
         res.json({"message":"fue eleminado con exito"});

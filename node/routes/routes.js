@@ -1,4 +1,4 @@
-import {getAll , get , update , create , delet} from '../controllers/controllers.js'
+import {getAllFechas , getFechas , updateFechas , createFechas , deletFechas , getAllNotas , getNotas , updateNotas , createNotas , deletNotas} from '../controllers/controllers.js'
 import express from 'express'
 import {lecturaDeCarpeta , remove , abrir} from '../funciones/Funciones.js'
 import multer from 'multer'
@@ -16,18 +16,25 @@ const Upload = (carpeta) =>{
     return upload.single("archivo");
 }
 
-export const router = express.Router()
+export const router1 = express.Router()
+export const router2 = express.Router()
 export const routerEstadistica = express.Router();
 export const routerArquitectura = express.Router();
 export const routerProgramacion = express.Router();
 export const routerMetodologia = express.Router();
 export const routerIngles = express.Router();
 
-router.get('/', getAll);
-router.get('/:id', get);
-router.post('/', create);
-router.delete('/:id', delet);
-router.put('/:id', update);
+router1.get('/', getAllNotas);
+router1.get('/:id', getNotas);
+router1.post('/', createNotas);
+router1.delete('/:id', deletNotas);
+router1.put('/:id', updateNotas);
+
+router2.get('/', getAllFechas);
+router2.get('/:id', getFechas);
+router2.post('/', createFechas);
+router2.delete('/:id', deletFechas);
+router2.put('/:id', updateFechas);
 
 routerEstadistica.post('/', Upload('Estadistica'),  (req, res) => {
     try{

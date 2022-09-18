@@ -31,7 +31,7 @@ const Estructura = ({Nombre}: Props):JSX.Element => {
         <p className='nombreDeInterface text-break'>{Nombre}</p>  
         <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(1)}}>Documentos</button>
         <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(2)}}>Notas</button>
-        <Link to="/UTN" className="btn mt-3" style={{backgroundColor: "black" , width:"100px" , transform: "translate(0px, 65px)"}}><i style={{backgroundColor: "black"}} className="fa-solid fa-left-long"></i></Link>
+        <Link to="/" className="btn mt-3" style={{backgroundColor: "black" , width:"100px" , transform: "translate(0px, 65px)"}}><i style={{backgroundColor: "black"}} className="fa-solid fa-left-long"></i></Link>
       </div>}
       <button className="btn btnDeLateral TemaClaro" onClick={(e)=> {e.preventDefault(); controladorBarraLaterl();}} style={{transform: `${controlador[0] ? "translate(-620px, -285px)" :"translate(-400px, -285px)"}`}}>
         <i className={`${controlador[0] ? 'fa-solid fa-right-long' : 'fa-solid fa-left-long'}`}></i>
