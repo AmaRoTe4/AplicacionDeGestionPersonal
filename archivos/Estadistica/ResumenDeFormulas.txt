@@ -1,0 +1,41 @@
+En este tendremos que sacar la media x~ y de y~
+tambien la varianza de estos
+la covarianza
+r
+b
+a
+
+las 4 primeras la sacamos con la calculadora:
+	primero ponemos en mode estadistica:
+	mode -> reg -> lin
+	luego vamos agregando los valores con el siguiente orden:
+		primero x , y m+ ac
+	despues de cargar todo buscamos en la parte de shift + 2
+	lo que queresmo realizar
+
+la covarianza la sacamos:
+	(E(x*y)/N) - x~*y~ = coyx
+r:
+	covarianza/(vx*vy) = r
+b:
+	r*(vy/vx) = b
+a:
+	v~ - (b*x~) = a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

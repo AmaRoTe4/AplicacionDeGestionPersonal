@@ -2,10 +2,14 @@ import './style.css'
 import {Marcas} from '../../../react-app-env'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
-const PATH:string = "http://localhost:7890/Fechas/"
+//const PATH:string = "http://localhost:7890/Fechas/"
 
 const MiniCalendario = ():JSX.Element =>{
+    const { id_user } = useSelector((state:RootState) => state.id_user) 
+    const { Path } = useSelector((state:RootState) => state.path) 
     const [indentificador , setIndentificador] = useState<Array<Marcas>>([]);
     const [fechasPorMes ] = useState<number[][]>([
         [0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,0],
@@ -24,15 +28,21 @@ const MiniCalendario = ():JSX.Element =>{
     }
 
     const CargarInde = async ():Promise<void> => {
-        let aux = await axios.get(PATH)
-        setIndentificador(aux.data.map((n:any)=> {
-            return {
-                id: n.id,
-                Id_dias: n.Id_dias,
-                Id_mes: n.Id_mes,
-                Nombre: n.Nombre
-            }
-        }))
+        let aux = await axios.get(Path+ 'Fechas/')
+        if(id_user){
+            let notasAux:Marcas[] = aux.data.filter((n:Marcas) => 
+                n.Id_user === id_user
+            )
+            setIndentificador(notasAux.map((n:any)=> {
+                return {
+                    id: n.id,
+                    Id_dias: n.Id_dias,
+                    Id_mes: n.Id_mes,
+                    Nombre: n.Nombre,
+                    Id_user: n.Id_user, 
+                }
+            }))
+        }
     }
 
 

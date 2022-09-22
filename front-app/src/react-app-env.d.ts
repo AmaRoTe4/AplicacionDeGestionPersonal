@@ -4,6 +4,7 @@ export interface NotasGenericas {
     Name:string,
     Text:string,
     Father:string,
+    Id_user:number;
 }
 
 export interface Marcas{
@@ -11,4 +12,5 @@ export interface Marcas{
     Id_dias:number;
     Id_mes:number;
     Nombre:string;
+    Id_user:number;
 }

@@ -2,30 +2,28 @@ import './style.css'
 import { useState } from 'react'
 import {Marcas} from '../../../react-app-env'
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
-const PATH:string = "http://localhost:7890/Fechas/"
-
+//const PATH:string = "http://localhost:7890/Fechas/" 
 interface Props{
     fechasPorMes:number[][];
     indentificador:Marcas[];
     setRecarga:React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const PorDeFecto:Marcas = {
-    "id":0,
-    'Id_dias':0,
-    'Id_mes':0,
-    'Nombre':'',
-}
-
 const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Props):JSX.Element =>{
-    const [meses , setMeses] = useState<number>(0);
-    const [consNota , setConsNota] = useState<Marcas>({
+    const { id_user } = useSelector((state:RootState) => state.id_user)
+    const { Path } = useSelector((state:RootState) => state.path)
+    const PorDeFecto:Marcas = {
         "id":0,
         'Id_dias':0,
         'Id_mes':0,
         'Nombre':'',
-    });
+        'Id_user': id_user, 
+    }
+    const [meses , setMeses] = useState<number>(0);
+    const [consNota , setConsNota] = useState<Marcas>(PorDeFecto);
     const [eventos , setEventos] = useState<number[]>([0 , 0]);
 
     const today = (id:number):boolean => {
@@ -53,11 +51,12 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
 
     const crearNota = async():Promise<void> =>{
         console.log('crear')
-        await axios.post(PATH , 
+        await axios.post(Path+ 'Fechas/' , 
             {
                 Id_dias:eventos[0]-1 , 
                 Id_mes:meses , 
-                Nombre:consNota.Nombre
+                Nombre:consNota.Nombre,
+                Id_user: process.env.REACT_APP_ID
             }    
         )
         setEventos([0 , eventos[1]]);
@@ -66,14 +65,14 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
     }
 
     const borrar = async ():Promise<void> =>{
-        await axios.delete(`${PATH}${consNota.id}`)
+        await axios.delete(`${Path+ 'Fechas/'}${consNota.id}`)
         setEventos([0,0]);
         setConsNota(PorDeFecto)
         setRecarga(true)
     } 
 
     const editar = async ():Promise<void> =>{
-        await axios.put(`${PATH}${consNota.id}` , 
+        await axios.put(`${Path+ 'Fechas/'}${consNota.id}` , 
             {
                 Nombre:consNota.Nombre
             }
@@ -100,6 +99,8 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
             'Id_dias':aux[0].Id_dias,
             'Id_mes':aux[0].Id_mes,
             'Nombre':aux[0].Nombre,
+            'Id_user': aux[0].Id_user, 
+
         })
         setEventos([id, id]);
     }   
@@ -176,6 +177,7 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
                         'Id_dias':consNota.Id_dias,
                         'Id_mes':consNota.Id_mes,
                         'Nombre':e.target.value,
+                        'Id_user':consNota.Id_user
                     })}}className='textTarea TemaClaro' placeholder='Nombre De La Anotacion'>
                     </textarea>
                 </div>

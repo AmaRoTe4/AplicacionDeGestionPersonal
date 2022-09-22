@@ -1,0 +1,83 @@
+datos bivariados:
+	se mide dos vriables por unidad experimental
+	estudio:
+		relacion entre las variables
+		graficos
+		medidas numericas
+	graficos:
+		variables cualitativas --> al menos unas var es cuali
+		@pastel
+		@lineas
+		@barras
+		una var - 2 poblaciones
+		pastel --> una al lado de la otra
+		lineaas --> una al lado de la otra
+			--> una arriba de la otra
+		comparaciones condicionasles --> fre relativas son mas facile sde comprar que las frecuencas reales
+	graficos de dispersion:
+		variables cuantitativas --> ambas variables lo son
+			var 1 --> eje x
+			var 2 --> eje y
+			cada par de valores --> un punto en la grafica
+		relaciones
+			que tipo de modelos se meustra --> hay una tendencia
+			que tan fuerte es el modelo --> es una relacion fuertemente visible
+			hay observaiones poco comunes
+			hay agrupaciones de datos
+		graficas mas comunes
+			tasa constante de aumento
+			tase constante de disminucion
+				modelo lineal --> punto por encima y por debajo del la recta --> relacion lineal
+	medidas numericas:
+		coeficiente de correlacion:
+			medida que describe la relacion entre dos variables evaluadas en la misma unidad experimental
+			r > 0 --> modelo positivo
+			r < 0 --> modelo negativo
+			r = 0 --> sin modelo
+
+recta de regresion lineal
+	medidas numericas
+		variables cuantitativas --> ambas variables lo son
+		var 1 --> eje x --> independiente		-|
+		var 2 --> eje y --> dependiente			 |-----> modelo lineal ( y = a +bx )
+		cada par de valores --> u punto en la grafica	-|
+	
+	recta de regresion lineal:
+		
+		y = a + bx
+
+		a = ordenada al origen
+		bx = pendiente
+		b > 0 = recta ascendente
+		b < 0 = recta descendente
+		b = 0 = recta horizontal
+	
+		modelo real:
+			los puntos x e y no caen sobre una recta
+			pero si muestra una tendencia lineal
+			recta mejor ajustada a esa tendencia
+				recta de regresion lineal
+				recta de minimos cuadrados -> se encuentra al reducir al minimo la suma de las 
+							      diferencias cuadradas entre los punto de datos y la recta misma
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

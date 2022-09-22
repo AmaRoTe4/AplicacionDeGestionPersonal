@@ -2,8 +2,10 @@
 import './notas.css'
 import { NotasGenericas } from '../../../react-app-env'
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
-const Path = 'http://localhost:7890/notas/';
+//const Path = 'http://localhost:7890/notas/';
 
 interface Props{
     setFuncion:React.Dispatch<React.SetStateAction<number>>;
@@ -14,25 +16,24 @@ interface Props{
 }
 
 const NewNota = ({setFuncion , funcion , RepoDeNotas ,ConstructorDeNota  ,setConstructorDeNota}: Props):JSX.Element => {
+    const { id_user } = useSelector((state:RootState) => state.id_user) 
+    const { Path } = useSelector((state:RootState) => state.path) 
+    const PorDefecto:NotasGenericas = {
+        'id':ConstructorDeNota.id,
+        'Name':'',
+        'Text':'',
+        'Father': RepoDeNotas,
+        'Id_user': id_user,
+    }
 
     const subirNota = async():Promise<void> =>{
-        await axios.post(Path, {Name: ConstructorDeNota.Name , Text:ConstructorDeNota.Text, Father:RepoDeNotas})
-        setConstructorDeNota({
-            'id':ConstructorDeNota.id,
-            'Name':'',
-            'Text':'',
-            'Father': RepoDeNotas,
-        })
+        await axios.post(Path+'notas/', {Name: ConstructorDeNota.Name , Text:ConstructorDeNota.Text, Father:RepoDeNotas , Id_user:id_user})
+        setConstructorDeNota(PorDefecto)
     }
 
     const editarNota = async():Promise<void> =>{
-        await axios.put(`${Path}${ConstructorDeNota.id}`, {Name: ConstructorDeNota.Name , Text:ConstructorDeNota.Text})
-        setConstructorDeNota({
-            'id':ConstructorDeNota.id,
-            'Name':'',
-            'Text':'',
-            'Father': RepoDeNotas,
-        })
+        await axios.put(`${Path}notas/${ConstructorDeNota.id}`, {Name: ConstructorDeNota.Name , Text:ConstructorDeNota.Text})
+        setConstructorDeNota(PorDefecto)
     }
 
     const cargarNota = ():void =>{
@@ -50,6 +51,7 @@ const NewNota = ({setFuncion , funcion , RepoDeNotas ,ConstructorDeNota  ,setCon
             'Text': ConstructorDeNota.Text,
             'Name':nombre,
             'Father': RepoDeNotas,
+            'Id_user': id_user,
         })
     }
 
@@ -59,6 +61,7 @@ const NewNota = ({setFuncion , funcion , RepoDeNotas ,ConstructorDeNota  ,setCon
             'Text':text,
             'Name':ConstructorDeNota.Name,
             'Father': RepoDeNotas,
+            'Id_user': id_user,
         })
     }
 

@@ -4,28 +4,28 @@ import { useState } from 'react'
 import NewNota from './crearNuevaNota'
 import MostrarNotas from './mostrarNotas'
 import { NotasGenericas } from '../../../react-app-env';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 interface Props{
-  RepoDeNotas:string;
+    RepoDeNotas:string;
 }
 
 const Notas = ({RepoDeNotas}: Props):JSX.Element => {
+  const { id_user } = useSelector((state:RootState) => state.id_user) 
+  const PorDefecto:NotasGenericas = {
+        'id':0,
+        'Name':'',
+        'Text':'',
+        'Father': RepoDeNotas,
+        'Id_user': id_user,
+  }
   const [controlador , setControlador] = useState<number>(0);  
-  const [ConstructorDeNota , setConstructorDeNota] = useState<NotasGenericas>({
-    'id':0,
-    'Name':'',
-    'Text':'',
-    'Father': RepoDeNotas,
-  }) 
+  const [ConstructorDeNota , setConstructorDeNota] = useState<NotasGenericas>(PorDefecto) 
 
   const cancelar = ():void => {
     setControlador(0);
-    setConstructorDeNota({
-      'id':0,
-      'Name':'',
-      'Text':'',
-      'Father': RepoDeNotas,
-    })
+    setConstructorDeNota(PorDefecto)
   }
 
   return (

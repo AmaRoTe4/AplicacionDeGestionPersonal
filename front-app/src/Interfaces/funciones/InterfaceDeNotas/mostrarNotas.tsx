@@ -1,8 +1,10 @@
 import { NotasGenericas } from '../../../react-app-env'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
-const Path = 'http://localhost:7890/notas/';
+//const Path = 'http://localhost:7890/notas/';
 
 interface Props {
   controlador:  React.Dispatch<React.SetStateAction<number>>;
@@ -12,6 +14,8 @@ interface Props {
 }
 
 const MostrarNotas = ({controlador , RepoDeNotas, setConstructorDeNota , ConstructorDeNota}: Props):JSX.Element => {
+    const { id_user } = useSelector((state:RootState) => state.id_user) 
+    const { Path } = useSelector((state:RootState) => state.path) 
     const [notas , setNotas] = useState<NotasGenericas[]>();
     const [evento , setEvento] = useState<number>(0);
 
@@ -22,9 +26,9 @@ const MostrarNotas = ({controlador , RepoDeNotas, setConstructorDeNota , Constru
     }, [evento])
 
     const cargaDeNotas = async():Promise<void> =>{
-      const data = await axios.get(Path);
+      const data = await axios.get(Path+'notas/');
       const aux = data.data
-      setNotas(aux.filter((n:any) => n.Father === RepoDeNotas));
+      setNotas(aux.filter((n:any) => n.Father === RepoDeNotas && n.Id_user === id_user));
     }
 
     const Acciones = (obj: NotasGenericas):void => {
@@ -36,7 +40,7 @@ const MostrarNotas = ({controlador , RepoDeNotas, setConstructorDeNota , Constru
     }
 
     const Eliminar = async ():Promise<void> =>{
-        await axios.delete(`${Path}${ConstructorDeNota.id}`)
+        await axios.delete(`${Path}notas/${ConstructorDeNota.id}`)
         setEvento(0);
     }
 
@@ -57,7 +61,13 @@ const MostrarNotas = ({controlador , RepoDeNotas, setConstructorDeNota , Constru
             <div className="d-flex flex-column p-5 confirmacion" >
               <button type="button" className="btn btn-primary" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); Activar()}}>Ver</button>
               <button type="button" className="btn btn-light mt-3" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); setEvento(0)}}>Cancelar</button>
-              <button type="button" className="btn btn-danger mt-3" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); Eliminar()}}>Eliminar</button>
+              <button type="button" className="btn btn-danger mt-3" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); setEvento(2)}}>Eliminar</button>
+            </div>
+          }
+          {evento === 2 && 
+            <div className="d-flex flex-column p-5 confirmacion" >
+                <button type="button" className="btn btn-danger" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); Eliminar()}}>Confirmar</button>
+                <button type="button" className="btn btn-primary mt-3" style={{width: '30%'}} onClick={(e)=>{e.preventDefault(); setEvento(0);}}>Cancelar</button>
             </div>
           }
         </>
