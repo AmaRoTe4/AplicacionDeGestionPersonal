@@ -2,18 +2,15 @@ import { useEffect, useState } from 'react';
 import CalendarioConvencional from './calendarioNormal';
 import './style.css';
 import {Marcas} from '../../../react-app-env'
-import axios from 'axios';
+import {getCalendario} from '../../../store/slice/Calendario/api';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch} from 'react-redux';
 import { RootState } from '../../../store/store';
 
-//const PATH:string = "http://localhost:7890/Fechas/"
-
 const Calendario = ():JSX.Element => {
-    const { id_user } = useSelector((state:RootState) => state.id_user) 
-    const { Path } = useSelector((state:RootState) => state.path) 
+    const dispatch = useDispatch()
+    const { calendario } = useSelector((state:RootState) => state.calendario) 
     const [indentificador , setIndentificador] = useState<Array<Marcas>>([]);
-    const [recarga , setRecarga] = useState<boolean>(true);
     const [fechasPorMes ] = useState<number[][]>([
         [0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,0],
         [0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 ,0,0,0,0,0],
@@ -22,27 +19,12 @@ const Calendario = ():JSX.Element => {
     ])  
 
     useEffect(()=> {
-        CargarInde();
-    },[recarga])
+        carga()
+    },[calendario])
 
-    const CargarInde = async ():Promise<void> => {
-        let aux = await axios.get(Path + 'Fechas/')
-        if(id_user){
-            let notasAux:Marcas[] = aux.data.filter((n:Marcas) => 
-                n.Id_user === id_user 
-            )
-            console.log(notasAux)
-            setIndentificador(notasAux.map((n:any)=> {
-                return {
-                    id: n.id,
-                    Id_dias: n.Id_dias,
-                    Id_mes: n.Id_mes,
-                    Nombre: n.Nombre,
-                    Id_user: n.Id_user, 
-                }
-            }))
-            setRecarga(false)
-        }
+    const carga = ():void => {
+        dispatch( getCalendario() )
+        setIndentificador(calendario)
     }
 
     return (
@@ -53,7 +35,7 @@ const Calendario = ():JSX.Element => {
             <CalendarioConvencional 
             fechasPorMes={fechasPorMes} 
             indentificador={indentificador} 
-            setRecarga={setRecarga}/>
+            />
         </div>
     )
 }

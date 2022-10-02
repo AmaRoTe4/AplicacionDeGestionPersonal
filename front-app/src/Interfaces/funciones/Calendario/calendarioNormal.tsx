@@ -9,10 +9,9 @@ import { RootState } from '../../../store/store';
 interface Props{
     fechasPorMes:number[][];
     indentificador:Marcas[];
-    setRecarga:React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Props):JSX.Element =>{
+const CalendarioConvencional = ({fechasPorMes , indentificador }:Props):JSX.Element =>{
     const { id_user } = useSelector((state:RootState) => state.id_user)
     const { Path } = useSelector((state:RootState) => state.path)
     const PorDeFecto:Marcas = {
@@ -61,14 +60,12 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
         )
         setEventos([0 , eventos[1]]);
         setConsNota(PorDeFecto)
-        setRecarga(true)
     }
 
     const borrar = async ():Promise<void> =>{
         await axios.delete(`${Path+ 'Fechas/'}${consNota.id}`)
         setEventos([0,0]);
         setConsNota(PorDeFecto)
-        setRecarga(true)
     } 
 
     const editar = async ():Promise<void> =>{
@@ -79,7 +76,6 @@ const CalendarioConvencional = ({fechasPorMes , indentificador , setRecarga}:Pro
         )
         setEventos([0,0]);
         setConsNota(PorDeFecto)
-        setRecarga(true)
     } 
     
     const marcar = (id:number):void =>{

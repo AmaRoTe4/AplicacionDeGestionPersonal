@@ -20,10 +20,10 @@
 }
 
 .btnInteracion{
-    border-radius: 25px;
-    height: 22%;
-    margin: 20px;
-    width: 80%;
+    border-radius: 5px;
+    height: 12%;
+    margin: 5px;
+    width: 95%;
     font-size: 20px;
     color:black;
     background-color: white;
@@ -35,9 +35,17 @@
 }
 
 .nombreDeInterface{
+    height: 12%;
+    margin: 10px;
+    width: 95%;
     text-align: center;
-    transform: translateY(-50px);
     background-color: rgb(90, 90 ,90);
-    font-size: 25px;
+    font-size: 23px;
     width: 90%;
+}
+
+.middlesInver{
+    background-color: rgb(90, 90 ,90);
+    height: 50%;
+    width: 95%;
 }

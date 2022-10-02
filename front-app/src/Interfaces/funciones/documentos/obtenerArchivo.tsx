@@ -18,7 +18,7 @@ const ObtenerArchivo = ({nombre}: Props):JSX.Element => {
         //nombre que espera data cruda
         postData.append("archivo" , archivoObj)
 
-        axios.post(`http://localhost:7890/${nombre}` , postData);
+        await axios.post(`http://localhost:7890/${nombre}` , postData);
         setElementos(null);
     }
 

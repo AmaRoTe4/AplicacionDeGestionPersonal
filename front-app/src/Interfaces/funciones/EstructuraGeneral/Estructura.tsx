@@ -28,10 +28,14 @@ const Estructura = ({Nombre}: Props):JSX.Element => {
   return (
     <div className="oneHundred fondoEstadistica d-flex justify-content-center align-items-center">
       {!controlador[0] && <div className="barraLateral d-flex flex-column justify-content-center align-items-center">
-        <p className='nombreDeInterface text-break'>{Nombre}</p>  
-        <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(1)}}>Documentos</button>
-        <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(2)}}>Notas</button>
-        <Link to="/" className="btn mt-3" style={{backgroundColor: "black" , width:"100px" , transform: "translate(0px, 65px)"}}><i style={{backgroundColor: "black"}} className="fa-solid fa-left-long"></i></Link>
+        <div className='middlesInver d-flex flex-column align-items-center'>
+          <p className='nombreDeInterface justify-content-center align-items-center text-break'>{Nombre.toLocaleUpperCase()}</p>  
+          <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(1)}}>Documentos</button>
+          <button className='btnInteracion d-flex flex-column justify-content-center align-items-center' onClick={(e)=> {e.preventDefault() ; seleccionDeInterface(2)}}>Notas</button>
+        </div>
+        <div className='middlesInver d-flex justify-content-center align-items-end'>
+          <Link to="/" className="btn" style={{backgroundColor: "black" , width:"95%" , transform: "translate(0px, -5px"}}><i style={{backgroundColor: "black"}} className="fa-solid fa-left-long"></i></Link>
+        </div>
       </div>}
       <button className="btn btnDeLateral TemaClaro" onClick={(e)=> {e.preventDefault(); controladorBarraLaterl();}} style={{transform: `${controlador[0] ? "translate(-620px, -285px)" :"translate(-400px, -285px)"}`}}>
         <i className={`${controlador[0] ? 'fa-solid fa-right-long' : 'fa-solid fa-left-long'}`}></i>
